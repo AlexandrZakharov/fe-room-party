@@ -8,7 +8,13 @@ class AuthApiService extends ApiService {
     super("/auth");
   }
 
-  public register = (data: RegisterData): Promise<AuthResponse> => this._post("register", data);
+  public register = async (data: RegisterData): Promise<User> => {
+    const res: AuthResponse = await this._post("register", data);
+
+    localStorage.setItem('token', res.accessToken);
+
+    return res.user;
+  };
 
   public login = async (data: LoginData): Promise<User> => {
     const res: AuthResponse = await this._post("login", data);

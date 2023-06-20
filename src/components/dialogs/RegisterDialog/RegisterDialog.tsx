@@ -15,6 +15,7 @@ import { useMutation } from "@tanstack/react-query";
 import { ErrorResponse } from "@/types/error.interface";
 import { AuthResponse } from "@/services/api/auth/auth.interface";
 import { setUserData } from "@/store/user/user.reducer";
+import { User } from "@/types/user.interface";
 
 enum RegisterInputType {
   NAME,
@@ -41,9 +42,9 @@ const RegisterDialog: FC<Props> = ({
 
   const { mutate, error, isLoading } = useMutation({
     mutationFn: AuthApiService.register,
-    onSuccess: (data: AuthResponse) => {
+    onSuccess: (data: User) => {
       dispatch(setUserData(data));
-      onOpenLoginDialog();
+      onOpenRegisterDialog();
     },
     onError: (error: ErrorResponse) => error,
   });

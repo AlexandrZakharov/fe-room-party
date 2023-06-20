@@ -29,7 +29,7 @@ const Header: FC<Props> = ({ onOpenRegisterDialog, onOpenLoginDialog }) => {
           onOpenRegisterDialog={onOpenRegisterDialog}
           openNav={openNav}
           setOpenNav={setOpenNav}
-          userSlice={userSlice}
+          user={userSlice}
         />
       </div>
       <Collapse open={openNav}>

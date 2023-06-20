@@ -9,7 +9,7 @@ type Props = {
   onOpenRegisterDialog: () => void;
   onOpenLoginDialog: () => void;
   setOpenNav: (openNav: boolean) => void;
-  userSlice: User | null;
+  user: User | null;
 };
 
 const NavbarInner: FC<Props> = ({
@@ -17,20 +17,20 @@ const NavbarInner: FC<Props> = ({
   onOpenLoginDialog,
   openNav,
   setOpenNav,
-  userSlice
+  user
 }) => {
   return (
     <>
       <div className="hidden gap-2 lg:flex">
         <NavbarMenu
           collapsed={false}
-          authorized={!!userSlice}
+          authorized={!!user}
           onOpenLoginDialog={onOpenLoginDialog}
           onOpenRegisterDialog={onOpenRegisterDialog}
         />
       </div>
       <BurgerButton openNav={openNav} setOpenNav={setOpenNav} />
-      {userSlice && <ProfileMenu data={userSlice} />}
+      {user && <ProfileMenu data={user} />}
     </>
   );
 };
