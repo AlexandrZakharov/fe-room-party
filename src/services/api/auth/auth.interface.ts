@@ -15,3 +15,7 @@ export interface AuthResponse {
   accessToken: string;
   user: User;
 }
+
+export interface Kek {
+  kek: string;
+}

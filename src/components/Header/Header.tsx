@@ -18,28 +18,7 @@ const Header: FC<Props> = ({ onOpenRegisterDialog, onOpenLoginDialog }) => {
 
   return (
     <Navbar className="max-w-full rounded-none">
-      <div className="flex items-center justify-between text-blue-gray-900">
-        <Link to={"/"}>
-          <Typography className="mr-4 cursor-pointer py-1.5 font-medium">
-            Rooms Party
-          </Typography>
-        </Link>
-        <NavbarInner
-          onOpenLoginDialog={onOpenLoginDialog}
-          onOpenRegisterDialog={onOpenRegisterDialog}
-          openNav={openNav}
-          setOpenNav={setOpenNav}
-          user={userSlice}
-        />
-      </div>
-      <Collapse open={openNav}>
-        <NavbarMenu
-          authorized={!!userSlice}
-          collapsed
-          onOpenLoginDialog={onOpenLoginDialog}
-          onOpenRegisterDialog={onOpenRegisterDialog}
-        />
-      </Collapse>
+
     </Navbar>
   );
 };
