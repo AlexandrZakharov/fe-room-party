@@ -12,9 +12,9 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   plugins: [react(), basicSsl()],
   server: {
-    proxy: {
-      '/api': 'https://193.42.110.148:443'
-    }
+    // proxy: {
+    //   '/api': 'https://193.42.110.148:443'
+    // }
   },
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
